@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="BoardGames" match-name="Administrator"/>
+  <table-filter match-catalog="BoardGames" match-name="BoardGameKind"/>
+  <table-filter match-catalog="BoardGames" match-name="BoardGames"/>
+  <table-filter match-catalog="BoardGames" match-name="BoardGamesImage"/>
+  <table-filter match-catalog="BoardGames" match-name="GroupChoiceGames"/>
+  <table-filter match-catalog="BoardGames" match-name="GroupRoom"/>
+  <table-filter match-catalog="BoardGames" match-name="GroupRoomInfo"/>
+  <table-filter match-catalog="BoardGames" match-name="GroupRoomMessage"/>
+<!--   <table-filter match-catalog="BoardGames" match-name="JoinerInfoPrivateGroupRoom"/> -->
+<!--   <table-filter match-catalog="BoardGames" match-name="JoinerInfoStoreGroup"/> -->
+  <table-filter match-catalog="BoardGames" match-name="Joiner_Info"/>
+  <table-filter match-catalog="BoardGames" match-name="Member"/>
+  <table-filter match-catalog="BoardGames" match-name="MemberFavoredType"/>
+<!--   <table-filter match-catalog="BoardGames" match-name="PrivateChoiceGames"/> -->
+<!--   <table-filter match-catalog="BoardGames" match-name="PrivateGroupGamesItem"/> -->
+<!--   <table-filter match-catalog="BoardGames" match-name="PrivateGroupRoom"/> -->
+<!--   <table-filter match-catalog="BoardGames" match-name="PrivateGroupRoomInfo"/> -->
+<!--   <table-filter match-catalog="BoardGames" match-name="PrivateGroupRoomMessage"/> -->
+  <table-filter match-catalog="BoardGames" match-name="RentalTime"/>
+<!--   <table-filter match-catalog="BoardGames" match-name="StoreGroupChoiceGames"/> -->
+<!--   <table-filter match-catalog="BoardGames" match-name="StoreGroupRoom"/> -->
+<!--   <table-filter match-catalog="BoardGames" match-name="StoreGroupRoomInfo"/> -->
+<!--   <table-filter match-catalog="BoardGames" match-name="StoreGroupRoomMessage"/> -->
+  <table-filter match-catalog="BoardGames" match-name="StoreInformation"/>
+  <table-filter match-catalog="BoardGames" match-name="StoreInformationImage"/>
+  <table-filter match-catalog="BoardGames" match-name="StoreMember"/>
+  <table-filter match-catalog="BoardGames" match-name="StoreScore"/>
+  <table-filter match-catalog="BoardGames" match-name="TabuUsernameTable"/>
+</hibernate-reverse-engineering>

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014/12/31 ?W?? 11:23:36 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="model.BoardGameKind" table="BoardGameKind" catalog="BoardGames">
+        <id name="boardGameStyle" type="string">
+            <column name="boardGameStyle" length="30" />
+            <generator class="assigned" />
+        </id>
+        <property name="boardGameNumber" type="java.lang.Integer">
+            <column name="boardGameNumber" />
+        </property>
+        <set name="storeGroupChoiceGameses" table="StoreGroupChoiceGames" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="boardGameStyle" length="30" />
+            </key>
+            <one-to-many class="model.StoreGroupChoiceGames" />
+        </set>
+        <set name="boardGameses" table="BoardGames" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="boardGameStyle" length="30" />
+            </key>
+            <one-to-many class="model.BoardGames" />
+        </set>
+        <set name="privateChoiceGameses" table="PrivateChoiceGames" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="boardGameStyle" length="30" />
+            </key>
+            <one-to-many class="model.PrivateChoiceGames" />
+        </set>
+        <set name="privateGroupRooms" table="PrivateGroupRoom" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="boardGameStyle" length="30" />
+            </key>
+            <one-to-many class="model.PrivateGroupRoom" />
+        </set>
+        <set name="groupChoiceGameses" table="GroupChoiceGames" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="boardGameStyle" length="30" />
+            </key>
+            <one-to-many class="model.GroupChoiceGames" />
+        </set>
+    </class>
+</hibernate-mapping>
