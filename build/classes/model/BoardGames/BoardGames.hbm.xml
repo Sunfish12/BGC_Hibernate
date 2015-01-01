@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2014/12/31 ?W?? 11:23:36 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2015/1/1 ?W?? 12:09:11 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="model.BoardGames" table="BoardGames" catalog="BoardGames">
+    <class name="model.BoardGames.BoardGamesVO" table="BoardGames">
         <id name="boardGamesId" type="int">
             <column name="boardGamesId" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="boardGameKind" class="model.BoardGameKind" fetch="select">
+        <many-to-one name="boardGameKind" class="model.BoardGameKind.BoardGameKindVO" fetch="select">
             <column name="boardGameStyle" length="30" />
         </many-to-one>
-        <many-to-one name="storeMember" class="model.StoreMember" fetch="select">
+        <many-to-one name="storeMember" class="model.StoreMember.StoreMemberVO" fetch="select">
             <column name="storeUsername" length="50" />
         </many-to-one>
         <property name="storeName" type="string">
@@ -36,7 +36,7 @@
             <key>
                 <column name="boardGamesId" />
             </key>
-            <one-to-many class="model.BoardGamesImage" />
+            <one-to-many class="model.BoardGamesImage.BoardGamesImageVO" />
         </set>
     </class>
 </hibernate-mapping>

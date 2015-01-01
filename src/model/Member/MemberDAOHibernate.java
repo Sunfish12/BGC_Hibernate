@@ -30,7 +30,7 @@ public class MemberDAOHibernate implements MemberDAO_interface {
 		return memberVO;
 	}
 
-	private static final String GET_ALL_STMT = "from MemberVO order by username";
+	private static final String GET_ALL_STMT = "from MemberVO order by memberId";
 
 	@Override
 	public List<MemberVO> getAll() {

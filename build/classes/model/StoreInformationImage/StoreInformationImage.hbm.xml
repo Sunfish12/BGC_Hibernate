@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2014/12/31 ?W?? 11:23:36 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2015/1/1 ?W?? 12:09:11 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="model.StoreInformationImage" table="StoreInformationImage" catalog="BoardGames">
+    <class name="model.StoreInformationImage.StoreInformationImageVO" table="StoreInformationImage">
         <id name="storeImageId" type="int">
             <column name="storeImageId" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="storeInformation" class="model.StoreInformation" fetch="select">
+        <many-to-one name="storeInformation" class="model.StoreInformation.StoreInformationVO" fetch="select">
             <column name="storeId" />
         </many-to-one>
         <property name="boardGameHelp" type="string">

@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2014/12/31 ?W?? 11:23:36 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2015/1/1 ?W?? 12:09:11 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="model.RentalTime" table="RentalTime" catalog="BoardGames">
+    <class name="model.RentalTime.RentalTimeVO" table="RentalTime">
         <id name="storeId" type="int">
             <column name="storeId" />
             <generator class="foreign">
                 <param name="property">storeInformation</param>
             </generator>
         </id>
-        <one-to-one name="storeInformation" class="model.StoreInformation" constrained="true"></one-to-one>
+        <one-to-one name="storeInformation" class="model.StoreInformation.StoreInformationVO" constrained="true"></one-to-one>
         <property name="monStart" type="timestamp">
             <column name="monStart" length="23" />
         </property>

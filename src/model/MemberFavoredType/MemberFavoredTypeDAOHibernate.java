@@ -26,7 +26,7 @@ public class MemberFavoredTypeDAOHibernate implements
 		return memberFavoredTypeVO;
 	}
 
-	private static final String GET_ALL_STMT = "from MemberFavoredTypeVO order by username";
+	private static final String GET_ALL_STMT = "from MemberFavoredTypeVO order by memberId";
 
 	@Override
 	public List<MemberFavoredTypeVO> getAll() {

@@ -27,7 +27,7 @@ public class StoreMemberDAOHibernate implements StoreMemberDAO_Interface {
 		return storeMemberVO;
 	}
 
-	private static final String GET_ALL_STMT = "from StoreMemberVO order by storeUsername";
+	private static final String GET_ALL_STMT = "from StoreMemberVO order by storeMemberId";
 
 	@Override
 	public List<StoreMemberVO> getAll() {

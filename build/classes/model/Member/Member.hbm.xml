@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2014/12/31 ?W?? 11:23:36 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2015/1/1 ?W?? 12:09:11 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="model.Member" table="Member" catalog="BoardGames">
-        <id name="username" type="string">
-            <column name="username" length="30" />
-            <generator class="assigned" />
-        </id>
-        <property name="memberId" type="int">
+    <class name="model.Member.MemberVO" table="Member">
+        <id name="memberId" type="int">
             <column name="memberId" not-null="true" />
+            <generator class="identity" />
+        </id>
+        <property name="username" type="string">
+            <column name="username" length="30" />
         </property>
         <property name="pswd" type="binary">
             <column name="pswd" not-null="true" />
@@ -66,32 +66,20 @@
             <key>
                 <column name="groupUsername" length="30" />
             </key>
-            <one-to-many class="model.GroupRoom" />
+            <one-to-many class="model.GroupRoom.GroupRoomVO" />
         </set>
-        <one-to-one name="memberFavoredType" class="model.MemberFavoredType"></one-to-one>
+        <one-to-one name="memberFavoredType" class="model.MemberFavoredType.MemberFavoredTypeVO"></one-to-one>
         <set name="tabuUsernameTablesForToTabuUsername" table="TabuUsernameTable" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="toTabuUsername" length="30" />
             </key>
-            <one-to-many class="model.TabuUsernameTable" />
+            <one-to-many class="model.TabuUsernameTable.TabuUsernameTableVO" />
         </set>
         <set name="tabuUsernameTablesForTabuUsername" table="TabuUsernameTable" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="tabuUsername" length="30" />
             </key>
-            <one-to-many class="model.TabuUsernameTable" />
+            <one-to-many class="model.TabuUsernameTable.TabuUsernameTableVO" />
         </set>
-<!--         <set name="privateGroupRooms" table="PrivateGroupRoom" inverse="true" lazy="true" fetch="select"> -->
-<!--             <key> -->
-<!--                 <column name="privateGroupUsername" length="30" /> -->
-<!--             </key> -->
-<!--             <one-to-many class="model.PrivateGroupRoom" /> -->
-<!--         </set> -->
-<!--         <set name="storeGroupRooms" table="StoreGroupRoom" inverse="true" lazy="true" fetch="select"> -->
-<!--             <key> -->
-<!--                 <column name="groupUsername" length="30" /> -->
-<!--             </key> -->
-<!--             <one-to-many class="model.StoreGroupRoom" /> -->
-<!--         </set> -->
     </class>
 </hibernate-mapping>

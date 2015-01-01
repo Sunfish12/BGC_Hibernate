@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2014/12/31 ?W?? 11:23:36 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2015/1/1 ?W?? 12:09:11 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="model.MemberFavoredType" table="MemberFavoredType" catalog="BoardGames">
-        <id name="username" type="string">
-            <column name="username" length="30" />
-            <generator class="foreign">
-                <param name="property">member</param>
-            </generator>
+    <class name="model.MemberFavoredType.MemberFavoredTypeVO" table="MemberFavoredType">
+        <id name="memberId" type="int">
+            <column name="memberId" />
+            <generator class="assigned" />
         </id>
-        <one-to-one name="member" class="model.Member" constrained="true"></one-to-one>
+        <many-to-one name="member" class="model.Member.MemberVO" fetch="select">
+            <column name="username" length="30" />
+        </many-to-one>
         <property name="favoredType" type="string">
             <column name="favoredType" length="30" />
         </property>

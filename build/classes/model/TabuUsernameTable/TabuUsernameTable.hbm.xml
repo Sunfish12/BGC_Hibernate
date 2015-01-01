@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2014/12/31 ?W?? 11:23:36 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2015/1/1 ?W?? 12:09:11 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="model.TabuUsernameTable" table="TabuUsernameTable" catalog="BoardGames">
+    <class name="model.TabuUsernameTable.TabuUsernameTableVO" table="TabuUsernameTable">
         <id name="tabuId" type="int">
             <column name="tabuId" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="memberByToTabuUsername" class="model.Member" fetch="select">
+        <many-to-one name="memberByToTabuUsername" class="model.Member.MemberVO" fetch="select">
             <column name="toTabuUsername" length="30" />
         </many-to-one>
-        <many-to-one name="memberByTabuUsername" class="model.Member" fetch="select">
+        <many-to-one name="memberByTabuUsername" class="model.Member.MemberVO" fetch="select">
             <column name="tabuUsername" length="30" />
         </many-to-one>
         <property name="tabuReason" type="string">

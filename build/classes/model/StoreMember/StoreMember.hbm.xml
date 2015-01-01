@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2014/12/31 ?W?? 11:23:36 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2015/1/1 ?W?? 12:09:11 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="model.StoreMember" table="StoreMember" catalog="BoardGames">
+    <class name="model.StoreMember.StoreMemberVO" table="StoreMember">
         <id name="storeUsername" type="string">
             <column name="storeUsername" length="50" />
             <generator class="assigned" />
@@ -36,19 +36,19 @@
             <key>
                 <column name="storeUsername" length="50" />
             </key>
-            <one-to-many class="model.GroupRoom" />
+            <one-to-many class="model.GroupRoom.GroupRoomVO" />
         </set>
         <set name="storeInformations" table="StoreInformation" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="storeUsername" length="50" />
             </key>
-            <one-to-many class="model.StoreInformation" />
+            <one-to-many class="model.StoreInformation.StoreInformationVO" />
         </set>
         <set name="boardGameses" table="BoardGames" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="storeUsername" length="50" />
             </key>
-            <one-to-many class="model.BoardGames" />
+            <one-to-many class="model.BoardGames.BoardGamesVO" />
         </set>
     </class>
 </hibernate-mapping>

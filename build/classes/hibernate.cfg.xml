@@ -8,9 +8,9 @@
         
         <!-- 連線池c3p0設定-->
 		<property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-		<property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;DatabaseName=BoardGames</property>
+		<property name="hibernate.connection.url">jdbc:sqlserver://192.168.111.128:1433;DatabaseName=BoardGames</property>
 		<property name="hibernate.connection.username">sa</property>
-		<property name="hibernate.connection.password">123456</property>       
+		<property name="hibernate.connection.password">sa123456</property>       
 		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
 		<property name="hibernate.c3p0.min_size">5</property>
 		<property name="hibernate.c3p0.max_size">20</property>
@@ -41,7 +41,7 @@
 		<mapping resource="model/GroupRoom/GroupRoom.hbm.xml" />
 		<mapping resource="model/GroupRoomInfo/GroupRoomInfo.hbm.xml" />
 		<mapping resource="model/GroupRoomMessage/GroupRoomMessage.hbm.xml" />
-		<mapping resource="model/Joiner_Info/JoinerInfo.hbm.xml" />
+		<mapping resource="model/Joiner_Info/Joiner_Info.hbm.xml" />
 		<mapping resource="model/Member/Member.hbm.xml" />
 		<mapping resource="model/MemberFavoredType/MemberFavoredType.hbm.xml" />
 		<mapping resource="model/RentalTime/RentalTime.hbm.xml" />

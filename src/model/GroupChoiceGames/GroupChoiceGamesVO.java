@@ -1,18 +1,36 @@
 package model.GroupChoiceGames;
 
-public class GroupChoiceGamesVO {
-	// choiceGamesSerialNumber int
-	// groupSerialNumber int
-	// boardGameStyle varchar(10)
-	// boardGameName varchar(50)
-	private Integer choiceGamesSerialNumber;
-	private Integer groupSerialNumber;
-	private String boardGameStyle;
+import model.BoardGameKind.BoardGameKindVO;
+import model.GroupRoom.GroupRoomVO;
+
+public class GroupChoiceGamesVO implements java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int choiceGamesSerialNumber;
+	private BoardGameKindVO boardGameKind;
+	private GroupRoomVO groupRoom;
 	private String boardGameName;
 
+	public GroupChoiceGamesVO() {
+	}
+
+	public GroupChoiceGamesVO(int choiceGamesSerialNumber) {
+		this.choiceGamesSerialNumber = choiceGamesSerialNumber;
+	}
+
+	public GroupChoiceGamesVO(int choiceGamesSerialNumber,
+			BoardGameKindVO boardGameKind, GroupRoomVO groupRoom,
+			String boardGameName) {
+		this.choiceGamesSerialNumber = choiceGamesSerialNumber;
+		this.boardGameKind = boardGameKind;
+		this.groupRoom = groupRoom;
+		this.boardGameName = boardGameName;
+	}
+
 	public String toString() {
-		return choiceGamesSerialNumber + "\n" + groupSerialNumber + "\n"
-				+ boardGameStyle + "\n" + boardGameName + "\n";
+		return "[" + choiceGamesSerialNumber + "," + boardGameName + "]";
 	}
 
 	public static int convertInt(String data) {
@@ -26,32 +44,32 @@ public class GroupChoiceGamesVO {
 		return result;
 	}
 
-	public Integer getChoiceGamesSerialNumber() {
-		return choiceGamesSerialNumber;
+	public int getChoiceGamesSerialNumber() {
+		return this.choiceGamesSerialNumber;
 	}
 
-	public void setChoiceGamesSerialNumber(Integer choiceGamesSerialNumber) {
+	public void setChoiceGamesSerialNumber(int choiceGamesSerialNumber) {
 		this.choiceGamesSerialNumber = choiceGamesSerialNumber;
 	}
 
-	public Integer getGroupSerialNumber() {
-		return groupSerialNumber;
+	public BoardGameKindVO getBoardGameKind() {
+		return this.boardGameKind;
 	}
 
-	public void setGroupSerialNumber(Integer groupSerialNumber) {
-		this.groupSerialNumber = groupSerialNumber;
+	public void setBoardGameKind(BoardGameKindVO boardGameKind) {
+		this.boardGameKind = boardGameKind;
 	}
 
-	public String getBoardGameStyle() {
-		return boardGameStyle;
+	public GroupRoomVO getGroupRoom() {
+		return this.groupRoom;
 	}
 
-	public void setBoardGameStyle(String boardGameStyle) {
-		this.boardGameStyle = boardGameStyle;
+	public void setGroupRoom(GroupRoomVO groupRoom) {
+		this.groupRoom = groupRoom;
 	}
 
 	public String getBoardGameName() {
-		return boardGameName;
+		return this.boardGameName;
 	}
 
 	public void setBoardGameName(String boardGameName) {
