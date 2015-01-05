@@ -8,8 +8,9 @@
         
         <!-- 連線池c3p0設定-->
 		<property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-		<property name="hibernate.connection.url">jdbc:sqlserver://192.168.111.128:1433;DatabaseName=BoardGames</property>
+		<property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;DatabaseName=BoardGames</property>
 		<property name="hibernate.connection.username">sa</property>
+		<property name="hibernate.default_schema">dbo</property>
 		<property name="hibernate.connection.password">sa123456</property>       
 		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
 		<property name="hibernate.c3p0.min_size">5</property>
@@ -33,23 +34,23 @@
 		<property name="hibernate.current_session_context_class">thread</property>
 
 		<!--Java物件與資料庫表格的映射檔 -->
-		<mapping resource="model/Administrator/Administrator.hbm.xml" />
-		<mapping resource="model/BoardGameKind/BoardGameKind.hbm.xml" />
-		<mapping resource="model/BoardGames/BoardGames.hbm.xml" />
-		<mapping resource="model/BoardGamesImage/BoardGamesImage.hbm.xml" />
-		<mapping resource="model/GroupChoiceGames/GroupChoiceGames.hbm.xml" />
-		<mapping resource="model/GroupRoom/GroupRoom.hbm.xml" />
-		<mapping resource="model/GroupRoomInfo/GroupRoomInfo.hbm.xml" />
-		<mapping resource="model/GroupRoomMessage/GroupRoomMessage.hbm.xml" />
-		<mapping resource="model/Joiner_Info/Joiner_Info.hbm.xml" />
-		<mapping resource="model/Member/Member.hbm.xml" />
-		<mapping resource="model/MemberFavoredType/MemberFavoredType.hbm.xml" />
-		<mapping resource="model/RentalTime/RentalTime.hbm.xml" />
-		<mapping resource="model/StoreInformation/StoreInformation.hbm.xml" />
-		<mapping resource="model/StoreInformationImage/StoreInformationImage.hbm.xml" />
-		<mapping resource="model/StoreMember/StoreMember.hbm.xml" />
-		<mapping resource="model/StoreScore/StoreScore.hbm.xml" />
-		<mapping resource="model/TabuUsernameTable/TabuUsernameTable.hbm.xml" />
+		<mapping resource="model/Administrator.hbm.xml" />
+		<mapping resource="model/BoardGameKind.hbm.xml" />
+		<mapping resource="model/BoardGames.hbm.xml" />
+		<mapping resource="model/BoardGamesImage.hbm.xml" />
+		<mapping resource="model/GroupChoiceGames.hbm.xml" />
+		<mapping resource="model/GroupRoom.hbm.xml" />
+		<mapping resource="model/GroupRoomInfo.hbm.xml" />
+		<mapping resource="model/GroupRoomMessage.hbm.xml" />
+		<mapping resource="model/Joiner_Info.hbm.xml" />
+		<mapping resource="model/Member.hbm.xml" />
+		<mapping resource="model/MemberFavoredType.hbm.xml" />
+		<mapping resource="model/RentalTime.hbm.xml" />
+		<mapping resource="model/StoreInformation.hbm.xml" />
+		<mapping resource="model/StoreInformationImage.hbm.xml" />
+		<mapping resource="model/StoreMember.hbm.xml" />
+		<mapping resource="model/StoreScore.hbm.xml" />
+		<mapping resource="model/TabuUsernameTable.hbm.xml" />
 
 	</session-factory>
 	

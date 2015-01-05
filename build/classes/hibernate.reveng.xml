@@ -10,21 +10,10 @@
   <table-filter match-catalog="BoardGames" match-name="GroupRoom"/>
   <table-filter match-catalog="BoardGames" match-name="GroupRoomInfo"/>
   <table-filter match-catalog="BoardGames" match-name="GroupRoomMessage"/>
-<!--   <table-filter match-catalog="BoardGames" match-name="JoinerInfoPrivateGroupRoom"/> -->
-<!--   <table-filter match-catalog="BoardGames" match-name="JoinerInfoStoreGroup"/> -->
   <table-filter match-catalog="BoardGames" match-name="Joiner_Info"/>
   <table-filter match-catalog="BoardGames" match-name="Member"/>
   <table-filter match-catalog="BoardGames" match-name="MemberFavoredType"/>
-<!--   <table-filter match-catalog="BoardGames" match-name="PrivateChoiceGames"/> -->
-<!--   <table-filter match-catalog="BoardGames" match-name="PrivateGroupGamesItem"/> -->
-<!--   <table-filter match-catalog="BoardGames" match-name="PrivateGroupRoom"/> -->
-<!--   <table-filter match-catalog="BoardGames" match-name="PrivateGroupRoomInfo"/> -->
-<!--   <table-filter match-catalog="BoardGames" match-name="PrivateGroupRoomMessage"/> -->
   <table-filter match-catalog="BoardGames" match-name="RentalTime"/>
-<!--   <table-filter match-catalog="BoardGames" match-name="StoreGroupChoiceGames"/> -->
-<!--   <table-filter match-catalog="BoardGames" match-name="StoreGroupRoom"/> -->
-<!--   <table-filter match-catalog="BoardGames" match-name="StoreGroupRoomInfo"/> -->
-<!--   <table-filter match-catalog="BoardGames" match-name="StoreGroupRoomMessage"/> -->
   <table-filter match-catalog="BoardGames" match-name="StoreInformation"/>
   <table-filter match-catalog="BoardGames" match-name="StoreInformationImage"/>
   <table-filter match-catalog="BoardGames" match-name="StoreMember"/>

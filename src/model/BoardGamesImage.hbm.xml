@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015/1/5 ?U?? 05:13:13 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="model.BoardGames_ImageVO" table="BoardGamesImage" catalog="BoardGames">
+        <id name="storeImageId" type="int">
+            <column name="storeImageId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="boardGames" class="model.BoardGamesVO" fetch="select">
+            <column name="boardGamesId" />
+        </many-to-one>
+        <property name="imgFileName" type="string">
+            <column name="imgFileName" length="50" />
+        </property>
+        <property name="boardGameImages" type="binary">
+            <column name="boardGameImages" />
+        </property>
+    </class>
+</hibernate-mapping>

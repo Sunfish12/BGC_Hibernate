@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015/1/5 ?U?? 05:13:13 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="model.Member_FavoredTypeVO" table="MemberFavoredType" catalog="BoardGames">
+        <id name="memberId" type="int">
+            <column name="memberId" />
+            <generator class="foreign">
+                <param name="property">member</param>
+            </generator>
+        </id>
+        <one-to-one name="member" class="model.MemberVO" constrained="true"></one-to-one>
+        <property name="username" type="string">
+            <column name="username" length="30" />
+        </property>
+        <property name="favoredType" type="string">
+            <column name="favoredType" length="30" />
+        </property>
+    </class>
+</hibernate-mapping>
