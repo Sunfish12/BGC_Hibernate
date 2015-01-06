@@ -3,13 +3,13 @@ package model;
 import java.util.List;
 
 public interface RentalTimeDAO_Interface {
-	public abstract RentalTimeVO findByPrimeKey(Integer storeId);
+	public abstract RentalTime findByPrimeKey(Integer storeId);
 
-	public abstract List<RentalTimeVO> getAll();
+	public abstract List<RentalTime> getAll();
 
-	public abstract void insert(RentalTimeVO rtbean);
+	public abstract void insert(RentalTime rtbean);
 
-	public abstract void update(RentalTimeVO rtbean);
+	public abstract void update(RentalTime rtbean);
 
 	public abstract void delete(Integer storeId);
 }

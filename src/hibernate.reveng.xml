@@ -8,14 +8,14 @@
   <table-filter match-catalog="BoardGames" match-name="BoardGamesImage"/>
   <table-filter match-catalog="BoardGames" match-name="GroupChoiceGames"/>
   <table-filter match-catalog="BoardGames" match-name="GroupRoom"/>
-  <table-filter match-catalog="BoardGames" match-name="GroupRoomInfo"/>
-  <table-filter match-catalog="BoardGames" match-name="GroupRoomMessage"/>
+  <table-filter match-catalog="BoardGames" match-name="GroupRoom_Info"/>
+  <table-filter match-catalog="BoardGames" match-name="GroupRoom_Message"/>
   <table-filter match-catalog="BoardGames" match-name="Joiner_Info"/>
   <table-filter match-catalog="BoardGames" match-name="Member"/>
-  <table-filter match-catalog="BoardGames" match-name="MemberFavoredType"/>
+  <table-filter match-catalog="BoardGames" match-name="Member_FavoredType"/>
   <table-filter match-catalog="BoardGames" match-name="RentalTime"/>
   <table-filter match-catalog="BoardGames" match-name="StoreInformation"/>
-  <table-filter match-catalog="BoardGames" match-name="StoreInformationImage"/>
+  <table-filter match-catalog="BoardGames" match-name="StoreInformation_Image"/>
   <table-filter match-catalog="BoardGames" match-name="StoreMember"/>
   <table-filter match-catalog="BoardGames" match-name="StoreScore"/>
   <table-filter match-catalog="BoardGames" match-name="TabuUsernameTable"/>

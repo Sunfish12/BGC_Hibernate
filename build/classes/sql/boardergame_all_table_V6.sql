@@ -10,19 +10,19 @@
 --drop table StoreGroupRoomInfo;
 --drop table StoreGroupRoom;
 drop table GroupChoiceGames;
-drop table GroupRoomMessage;
+drop table GroupRoom_Message;
 drop table Joiner_Info;
-drop table GroupRoomInfo;
+drop table GroupRoom_Info;
 drop table GroupRoom;
-drop table BoardGamesImage;
+drop table BoardGames_Image;
 drop table BoardGames;
 drop table BoardGameKind;
 drop table StoreScore;
 drop table RentalTime;
-drop table StoreInformationImage;
+drop table StoreInformation_Image;
 drop table StoreInformation;
 drop table TabuUsernameTable;
-drop table MemberFavoredType;
+drop table Member_FavoredType;
 drop table StoreMember;
 drop table Administrator;
 drop table Member;
@@ -31,7 +31,7 @@ drop table Member;
 
 --create 會員Member--
 create table Member (
- memberId								  int IDENTITY (1,1) not null,
+ memberId								  int IDENTITY (1,1),
  username								  varchar(30) not null, 
  pswd									  varbinary(50) not null,
  email									  varchar(50) not null,
@@ -54,16 +54,16 @@ constraint Member_primary_key primary key (memberId));
 
 --create管理員	Administrator--
 create table Administrator(
-AdministratorId							  int IDENTITY (1,1) not null,
+administratorId							  int IDENTITY (1,1),
 adminUsername    						  varchar(30),
 adminPswd								  varbinary(50),
 imgFileName								  varchar(50),
 adminMemberImage						  image,
-constraint Administrator_primary_key primary key (AdministratorId));
+constraint Administrator_primary_key primary key (administratorId));
 
 --create店家會員	StoreMember--
 create table StoreMember (
-storeMemberId							  int IDENTITY (1,1)not null,
+storeMemberId							  int IDENTITY (1,1),
 storeUsername							  varchar(50),
 storePswd								  varbinary(50),
 storeJoinDate							  datetime,
@@ -75,12 +75,12 @@ storeWebsite							  varchar(100),
 constraint StoreMember_primary_key primary key (storeMemberId));
 
 --create會員喜好桌遊類型MemberFavoredType--
-create table MemberFavoredType(
-memberId								  int,
-username								  varchar(30),
+create table Member_FavoredType(
+memberFavoredId							  int IDENTITY (1,1),
+memberId								  int not null,
 favoredType								  varchar(30),
-constraint MemberFavoredType_memberId_fk foreign key (memberId) references Member(memberId),
-constraint MemberFavoredType_primary_key primary key (memberId));
+constraint Member_FavoredType_memberId_fk foreign key (memberId) references Member(memberId),
+constraint Member_FavoredType_primary_key primary key (memberFavoredId));
 
 --create 檢舉名單審核表	BlackUsernameTable--
 create table TabuUsernameTable(
@@ -94,7 +94,7 @@ constraint TabuUsernameTable_primary_key primary key (tabuId));
 
 --create 專賣店資訊	StoreInformation--
 create table StoreInformation(
-storeMemberId							  int,
+storeMemberId							  int not null,
 storeId									  int IDENTITY (1,1),
 storeName								  varchar(30),
 storeAddress							  varchar(100),
@@ -107,18 +107,18 @@ constraint StoreInformation_storeMemberId_fk foreign key (storeMemberId) referen
 constraint StoreInformation_primary_key primary key (storeId));
 
 --create 專賣店圖片	StoreInformationImage--
-create table StoreInformationImage(
-storeId      							  int,
+create table StoreInformation_Image(
+storeId      							  int not null,
 storeImageId							  int IDENTITY (1,1),
 boardGameHelp							  varchar(MAX),
 imgFileName								  varchar(50),
 areaImage								  image,
-constraint StoreInformationImage_storeId_fk foreign key (storeId) references StoreInformation(storeId),
-constraint StoreInformationImage_primary_key primary key (storeImageId));
+constraint StoreInformation_Image_storeId_fk foreign key (storeId) references StoreInformation(storeId),
+constraint StoreInformation_Image_primary_key primary key (storeImageId));
 
 --create 專賣店場地時段	RentalTime--
 create table RentalTime(
-storeId           						  int,
+storeId           						  int not null,
 monStart								  datetime,
 monEnd									  datetime,
 tueStart								  datetime,
@@ -138,54 +138,56 @@ constraint RentalTime_primary_key primary key (storeId));
 
 --專賣店評分	StoreScore--
 create table StoreScore(
-storeId									  int,
-username								  varchar(30),
+storeScoreId							  int IDENTITY (1,1),
+storeId									  int not null,
+memberId								  int not null,
 storeScore								  float,
 storeScoreReason						  varchar(400),
+constraint StoreScore_memberId_fk foreign key (memberId) references Member(memberId),
 constraint StoreScore_storeId_fk foreign key (storeId) references StoreInformation(storeId),
-constraint StoreScore_primary_key primary key (storeId));
+constraint StoreScore_primary_key primary key (storeScoreId));
 
 --桌遊類型	BoardGameKind
 create table BoardGameKind(
-boardGameNumber							  int,
+boardGameSerialNumber					  int,
 boardGameStyle							  varchar(30),
-constraint BoardGameKind_primary_key primary key (boardGameStyle));
+constraint BoardGameKind_primary_key primary key (boardGameSerialNumber));
 
 --(專賣店)桌遊資訊	BoardGames--
 create table BoardGames(
 boardGamesId							  int IDENTITY (1,1),
-storeMemberId						      int,
+storeMemberId						      int not null,
 storeName							      varchar(30),
 boardGameEnglishName					  varchar(30),
 boardGameName							  varchar(50),
-boardGameStyle							  varchar(30),
+boardGameSerialNumber					  int,
 boardGameNumber							  varchar(10),
 imgFileName								  varchar(50),
 boardGameImage							  image,
 boardGameExplan							  varchar(MAX),
 constraint BoardGames_primary_key primary key (boardGamesId),
 constraint BoardGames_storeMemberId_fk foreign key (storeMemberId) references StoreMember (storeMemberId),
-constraint BoardGames_boardGameStyle_fk foreign key (boardGameStyle) references BoardGameKind (boardGameStyle));
+constraint BoardGames_boardGameId_fk foreign key (boardGameSerialNumber) references BoardGameKind (boardGameSerialNumber));
 
 --桌遊圖片	BoardGamesImage--
-create table BoardGamesImage(
+create table BoardGames_Image(
 boardGamesId							  int,
 storeImageId							  int IDENTITY (1,1),
 imgFileName								  varchar(50),
 boardGameImages					          image,
-constraint BoardGamesImage_boardGamesId_fk foreign key (boardGamesId) references BoardGames (boardGamesId),
-constraint BoardGamesImage_primary_key primary key (storeImageId));
+constraint BoardGames_Image_boardGamesId_fk foreign key (boardGamesId) references BoardGames (boardGamesId),
+constraint BoardGames_Image_primary_key primary key (storeImageId));
 
 --私人房間(店家場)	GroupRoom--
 create table GroupRoom(
 groupSerialNumber						  int IDENTITY (1,1),
-storeMemberId							  int,
+storeMemberId							  int not null,
 storeName								  varchar(30),
-memberId								  int,
+memberId								  int not null,
 groupStartTime							  datetime,
 groupEndTime							  datetime,
 groupRoomName							  varchar(20),
-groupSuggestNumber						  int,
+groupSuggestNumber						  varchar(20),
 groupLowerLimit							  int,
 groupUpperLimit							  int,
 groupGameTime				              datetime,
@@ -199,13 +201,13 @@ constraint GroupRoom_memberId_fk foreign key (memberId) references Member (membe
 constraint GroupRoom_storeMemberId_fk foreign key (storeMemberId) references StoreMember (storeMemberId));
 
 --私人房間資訊(店家場)	GroupRoomInfo--
-create table GroupRoomInfo(
+create table GroupRoom_Info(
 groupSerialNumber						  int,
 groupPicture							  image,
 imgFileName	                              varchar(50),
 groupPictureSerialNumber				  int IDENTITY (1,1),
-constraint GroupRoomInfo_groupSerialNumber_fk foreign key (groupSerialNumber) references GroupRoom (groupSerialNumber),
-constraint GroupRoomInfo_primary_key primary key (groupPictureSerialNumber));
+constraint GroupRoom_Info_groupSerialNumber_fk foreign key (groupSerialNumber) references GroupRoom (groupSerialNumber),
+constraint GroupRoom_Info_primary_key primary key (groupPictureSerialNumber));
 
 
 --入團者(私人房間店家場)資訊 	Joiner_Info
@@ -218,24 +220,24 @@ constraint Joiner_Info_groupSerialNumber_fk foreign key (groupSerialNumber) refe
 constraint Joiner_Info_primary_key primary key (joiner_InfoSerialNumber));
 
 --私人房間(店家場)留言	GroupRoomMessage
-create table GroupRoomMessage(
+create table GroupRoom_Message(
 groupRoomMessageSerialNumber			  int IDENTITY (1,1),
 groupSerialNumber						  int,
 messageUsername							  varchar(30),
 messageContents							  varchar(400),
 messageTime							      dateTime,
-constraint GroupRoomMessage_groupSerialNumber_fk foreign key (groupSerialNumber) references GroupRoom (groupSerialNumber),
-constraint GroupRoomMessage_primary_key primary key (groupRoomMessageSerialNumber));
+constraint GroupRoom_Message_groupSerialNumber_fk foreign key (groupSerialNumber) references GroupRoom (groupSerialNumber),
+constraint GroupRoom_Message_primary_key primary key (groupRoomMessageSerialNumber));
 
 --私人房間(店家場)所選桌遊	GroupChoiceGames
 create table GroupChoiceGames(
 choiceGamesSerialNumber					  int IDENTITY (1,1),
 groupSerialNumber						  int,
-boardGameStyle							  varchar(30),
+boardGameSerialNumber					  int,
 boardGameName							  varchar(50),
 constraint GroupChoiceGames_primary_key primary key (choiceGamesSerialNumber),
 constraint GroupChoiceGames_groupSerialNumber_fk foreign key (groupSerialNumber) references GroupRoom (groupSerialNumber),
-constraint GroupChoiceGames_boardGameStyle_fk foreign key (boardGameStyle) references BoardGameKind (boardGameStyle));
+constraint GroupChoiceGames_boardGameSerialNumber_fk foreign key (boardGameSerialNumber) references BoardGameKind (boardGameSerialNumber));
 
 ----店家活動	StoreGroupRoom
 --create table StoreGroupRoom(
