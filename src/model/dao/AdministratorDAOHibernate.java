@@ -23,8 +23,8 @@ public class AdministratorDAOHibernate implements AdministratorDAO_Interface {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			administrator = (Administrator) session.get(
-					Administrator.class, administratorId);
+			administrator = (Administrator) session.get(Administrator.class,
+					administratorId);
 			session.getTransaction().commit();
 		} catch (RuntimeException ex) {
 			session.getTransaction().rollback();
@@ -83,8 +83,8 @@ public class AdministratorDAOHibernate implements AdministratorDAO_Interface {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			administrator = (Administrator) session.get(
-					Administrator.class, administratorId);
+			administrator = (Administrator) session.get(Administrator.class,
+					administratorId);
 			session.delete(administrator);
 			session.getTransaction().commit();
 		} catch (RuntimeException ex) {

@@ -8,11 +8,13 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import java.util.Set;
 
 import model.BoardGameKind;
 import model.BoardGameKindDAO_Interface;
 import model.BoardGames;
 import model.BoardGamesDAO_Interface;
+import model.BoardGames_Image;
 import model.StoreInformation;
 import model.StoreInformationDAO_Interface;
 import model.StoreMember;
@@ -185,5 +187,13 @@ public class BoardGamesDAOHibernate implements BoardGamesDAO_Interface {
 			System.out.println(vo.getBoardGameNumber());
 			System.out.println(vo.getBoardGameExplan());
 		}
+	}
+
+	@Override
+	public Set<BoardGames_Image> getBoardGames_ImageByBoardGamesId(
+			Integer boardGamesId) {
+		Set<BoardGames_Image> set = findByPrimeKey(boardGamesId)
+				.getBoardGamesImages();
+		return set;
 	}
 }

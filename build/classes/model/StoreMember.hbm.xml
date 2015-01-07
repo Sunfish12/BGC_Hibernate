@@ -32,19 +32,19 @@
         <property name="storeWebsite" type="string">
             <column name="storeWebsite" length="100" />
         </property>
-        <set name="boardGameses" table="BoardGames" inverse="true" lazy="true" fetch="select">
+        <set name="boardGameses" table="BoardGames" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="storeMemberId" />
             </key>
             <one-to-many class="model.BoardGames" />
         </set>
-        <set name="storeInformations" table="StoreInformation" inverse="true" lazy="true" fetch="select">
+        <set name="storeInformations" table="StoreInformation" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="storeMemberId" not-null="true" />
             </key>
             <one-to-many class="model.StoreInformation" />
         </set>
-        <set name="groupRooms" table="GroupRoom" inverse="true" lazy="true" fetch="select">
+        <set name="groupRooms" table="GroupRoom" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="storeMemberId" />
             </key>

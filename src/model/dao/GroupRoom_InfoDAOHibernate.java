@@ -18,8 +18,8 @@ public class GroupRoom_InfoDAOHibernate implements GroupRoom_InfoDAO_Interface {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			groupRoomInfo = (GroupRoom_Info) session.get(
-					GroupRoom_Info.class, groupSerialNumber);
+			groupRoomInfo = (GroupRoom_Info) session.get(GroupRoom_Info.class,
+					groupSerialNumber);
 			session.getTransaction().commit();
 		} catch (RuntimeException ex) {
 			session.getTransaction().rollback();
@@ -78,8 +78,8 @@ public class GroupRoom_InfoDAOHibernate implements GroupRoom_InfoDAO_Interface {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			groupRoomInfo = (GroupRoom_Info) session.get(
-					GroupRoom_Info.class, groupSerialNumber);
+			groupRoomInfo = (GroupRoom_Info) session.get(GroupRoom_Info.class,
+					groupSerialNumber);
 			session.delete(groupRoomInfo);
 			session.getTransaction().commit();
 		} catch (RuntimeException ex) {

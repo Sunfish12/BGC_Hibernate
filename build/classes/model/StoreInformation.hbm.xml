@@ -32,7 +32,7 @@
         <property name="groupUpperLimit" type="java.lang.Integer">
             <column name="groupUpperLimit" />
         </property>
-        <set name="storeInformationImages" table="StoreInformation_Image" inverse="true" lazy="true" fetch="select">
+        <set name="storeInformationImages" table="StoreInformation_Image" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="storeId" not-null="true" />
             </key>

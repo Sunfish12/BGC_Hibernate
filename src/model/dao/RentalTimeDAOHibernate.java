@@ -20,8 +20,7 @@ public class RentalTimeDAOHibernate implements RentalTimeDAO_Interface {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			rentalTime = (RentalTime) session.get(RentalTime.class,
-					storeId);
+			rentalTime = (RentalTime) session.get(RentalTime.class, storeId);
 			session.getTransaction().commit();
 		} catch (RuntimeException ex) {
 			session.getTransaction().rollback();
@@ -80,8 +79,7 @@ public class RentalTimeDAOHibernate implements RentalTimeDAO_Interface {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		try {
 			session.beginTransaction();
-			rentalTime = (RentalTime) session.get(RentalTime.class,
-					storeId);
+			rentalTime = (RentalTime) session.get(RentalTime.class, storeId);
 			session.delete(rentalTime);
 			session.getTransaction().commit();
 		} catch (RuntimeException ex) {

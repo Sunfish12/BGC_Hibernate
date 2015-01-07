@@ -3,9 +3,12 @@ package model.dao;
 import hibernate.util.HibernateUtil;
 
 import java.util.List;
+import java.util.Set;
 
 import model.BoardGameKind;
 import model.BoardGameKindDAO_Interface;
+import model.BoardGames;
+import model.GroupChoiceGames;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -131,5 +134,21 @@ public class BoardGameKindDAOHibernate implements BoardGameKindDAO_Interface {
 			System.out.println(vo.getBoardGameSerialNumber());
 			System.out.println(vo.getBoardGameStyle());
 		}
+	}
+
+	@Override
+	public Set<GroupChoiceGames> getGroupChoiceGamesByBoardGameSerialNumber(
+			Integer boardGameSerialNumber) {
+		Set<GroupChoiceGames> set = findByPrimeKey(boardGameSerialNumber)
+				.getGroupChoiceGameses();
+		return set;
+	}
+
+	@Override
+	public Set<BoardGames> getBoardGamesByBoardGameSerialNumber(
+			Integer boardGameSerialNumber) {
+		Set<BoardGames> set = findByPrimeKey(boardGameSerialNumber)
+				.getBoardGameses();
+		return set;
 	}
 }

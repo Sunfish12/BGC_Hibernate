@@ -35,7 +35,7 @@
         <property name="boardGameExplan" type="string">
             <column name="boardGameExplan" />
         </property>
-        <set name="boardGamesImages" table="BoardGames_Image" inverse="true" lazy="true" fetch="select">
+        <set name="boardGamesImages" table="BoardGames_Image" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="boardGamesId" />
             </key>

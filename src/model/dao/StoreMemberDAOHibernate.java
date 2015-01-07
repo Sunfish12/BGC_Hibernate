@@ -8,7 +8,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import java.util.Set;
 
+import model.BoardGames;
+import model.GroupRoom;
+import model.StoreInformation;
 import model.StoreMember;
 import model.StoreMemberDAO_Interface;
 
@@ -170,5 +174,25 @@ public class StoreMemberDAOHibernate implements StoreMemberDAO_Interface {
 			System.out.println(vo.getStoreMemberId());
 			System.out.println(vo.getStoreUsername());
 		}
+	}
+
+	@Override
+	public Set<BoardGames> getBoardGamesesByStoreMemberId(Integer storeMemberId) {
+		Set<BoardGames> set = findByPrimeKey(storeMemberId).getBoardGameses();
+		return set;
+	}
+
+	@Override
+	public Set<StoreInformation> getStoreInformationsByStoreMemberId(
+			Integer storeMemberId) {
+		Set<StoreInformation> set = findByPrimeKey(storeMemberId)
+				.getStoreInformations();
+		return set;
+	}
+
+	@Override
+	public Set<GroupRoom> getGroupRoomsByStoreMemberId(Integer storeMemberId) {
+		Set<GroupRoom> set = findByPrimeKey(storeMemberId).getGroupRooms();
+		return set;
 	}
 }

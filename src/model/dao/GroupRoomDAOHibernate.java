@@ -8,9 +8,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import java.util.Set;
 
+import model.GroupChoiceGames;
 import model.GroupRoom;
 import model.GroupRoomDAO_Interface;
+import model.GroupRoom_Info;
+import model.GroupRoom_Message;
+import model.Joiner_Info;
 import model.Member;
 import model.MemberDAO_interface;
 import model.StoreInformation;
@@ -154,5 +159,37 @@ public class GroupRoomDAOHibernate implements GroupRoomDAO_Interface {
 			System.out.println(vo.getReserveGroupStartTime());
 			System.out.println(vo.getReserveGroupEndTime());
 		}
+	}
+
+	@Override
+	public Set<GroupRoom_Info> getGroupRoom_InfoByGroupSerialNumber(
+			Integer groupSerialNumber) {
+		Set<GroupRoom_Info> set = findByPrimeKey(groupSerialNumber)
+				.getGroupRoomInfos();
+		return set;
+	}
+
+	@Override
+	public Set<Joiner_Info> getJoiner_InfoByGroupSerialNumber(
+			Integer groupSerialNumber) {
+		Set<Joiner_Info> set = findByPrimeKey(groupSerialNumber)
+				.getJoinerInfos();
+		return set;
+	}
+
+	@Override
+	public Set<GroupRoom_Message> getGroupRoom_MessageByGroupSerialNumber(
+			Integer groupSerialNumber) {
+		Set<GroupRoom_Message> set = findByPrimeKey(groupSerialNumber)
+				.getGroupRoomMessages();
+		return set;
+	}
+
+	@Override
+	public Set<GroupChoiceGames> getGroupChoiceGamesByGroupSerialNumber(
+			Integer groupSerialNumber) {
+		Set<GroupChoiceGames> set = findByPrimeKey(groupSerialNumber)
+				.getGroupChoiceGameses();
+		return set;
 	}
 }

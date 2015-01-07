@@ -8,9 +8,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import java.util.Set;
 
 import model.StoreInformation;
 import model.StoreInformationDAO_Interface;
+import model.StoreInformation_Image;
 import model.StoreMember;
 import model.StoreMemberDAO_Interface;
 
@@ -148,5 +150,13 @@ public class StoreInformationDAOHibernate implements
 			System.out.println(vo.getStoreName());
 			System.out.println(vo.getStoreAddress());
 		}
+	}
+
+	@Override
+	public Set<StoreInformation_Image> getStoreInformation_ImageByStoreId(
+			Integer storeId) {
+		Set<StoreInformation_Image> set = findByPrimeKey(storeId)
+				.getStoreInformationImages();
+		return set;
 	}
 }
